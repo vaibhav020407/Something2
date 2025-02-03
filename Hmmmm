@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Birthday Countdown</title>
+
+<style>
+
+body {
+
+font-family: Arial, sans-serif;
+
+background-color: pink;
+
+display: flex;
+
+justify-content: center;
+
+align-items: center;
+
+height: 100vh;
+
+margin: 0;
+
+color: white;
+
+flex-direction: column;
+
+text-align: center;
+
+}
+
+.countdown {
+
+font-size: 2rem;
+
+margin-top: 20px;
+
+}
+
+.message {
+
+font-size: 2rem;
+
+margin-top: 20px;
+
+animation: fadeIn 2s ease-in-out;
+
+}
+
+@keyframes fadeIn {
+
+0% {
+
+opacity: 0;
+
+}
+
+100% {
+
+opacity: 1;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="message">
+
+Happy Birthday Ananya Jii
+!!💐<br> hamesa kush rhiye !!!
+
+</div>
+
+<div class="countdown">
+
+<span id="years"></span> years, 
+
+<span id="months"></span> months, 
+
+<span id="days"></span> days, 
+
+<span id="hours"></span> hours, 
+
+<span id="minutes"></span> minutes, 
+
+<span id="seconds"></span> seconds
+
+</div>
+
+<script>
+
+const dob = new Date('2007-02-04T00:00:00'); // Ananya's date of birth
+
+const birthdayMessage = document.querySelector('.message');
+
+const countdownDisplay = {
+
+years: document.getElementById('years'),
+
+months: document.getElementById('months'),
+
+days: document.getElementById('days'),
+
+hours: document.getElementById('hours'),
+
+minutes: document.getElementById('minutes'),
+
+seconds: document.getElementById('seconds')
+
+};
+
+function updateCountdown() {
+
+const now = new Date();
+
+const ageInMilliseconds = now - dob;
+
+const ageDate = new Date(ageInMilliseconds);
+
+// Calculate time difference
+
+const years = ageDate.getUTCFullYear() - 1970;
+
+const months = ageDate.getUTCMonth();
+
+const days = ageDate.getUTCDate() - 1;
+
+const hours = now.getHours();
+
+const minutes = now.getMinutes();
+
+const seconds = now.getSeconds();
+
+// Update the countdown display
+
+countdownDisplay.years.textContent = years;
+
+countdownDisplay.months.textContent = months;
+
+countdownDisplay.days.textContent = days;
+
+countdownDisplay.hours.textContent = hours;
+
+countdownDisplay.minutes.textContent = minutes;
+
+countdownDisplay.seconds.textContent = seconds;
+
+}
+
+setInterval(updateCountdown, 1000); // Update every second
+
+updateCountdown(); // Initialize the countdown
+
+</script>
+
+</body>
+
+</html>
+
